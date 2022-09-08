@@ -7,18 +7,8 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 import Footer from "../components/Layout/Footer";
 import Nav from "../components/Layout/Nav";
-import { ONE_HOUR_MS, ONE_MINUTES_MS } from "../lib/constants";
 
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      refetchOnWindowFocus: false,
-      staleTime: ONE_MINUTES_MS,
-      cacheTime: ONE_HOUR_MS,
-      retry: false,
-    },
-  },
-});
+const queryClient = new QueryClient();
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <QueryClientProvider client={queryClient}>
